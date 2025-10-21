@@ -1,11 +1,13 @@
 package com.carbonoverde.backend.entities;
 
+import com.carbonoverde.backend.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.List;
 
@@ -25,6 +27,10 @@ public class User implements UserDetails
     private Long id;
 
     @NotBlank
+    @Column(name = "name", unique = true, nullable = false)
+    private String name;
+
+    @NotBlank
     @Column(name = "username", unique = true, nullable = false)
     private String username;
 
@@ -36,8 +42,13 @@ public class User implements UserDetails
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private UserRole role;
 
 
+    // implementation of UserDetails interface methods
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
