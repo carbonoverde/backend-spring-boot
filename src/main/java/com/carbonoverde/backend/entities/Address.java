@@ -21,7 +21,7 @@ public class Address
 
     @NotBlank
     @Column(name = "cep", length = 8, nullable = false)
-    private Long cep;
+    private String cep;
 
     @NotBlank
     @Column(name = "country", length = 100)
@@ -48,4 +48,12 @@ public class Address
 
     @Column(name = "complement", length = 100)
     private String complement;
+
+    @NotBlank
+    @Column(name = "latitude", nullable = false)
+    private Double latitude;
+
+    @NotBlank
+    @Column(name = "longitude", nullable = false)
+    private Double longitude;
 }
