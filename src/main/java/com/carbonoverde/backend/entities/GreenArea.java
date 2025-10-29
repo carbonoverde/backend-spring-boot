@@ -4,6 +4,7 @@ import com.carbonoverde.backend.enums.TypeArea;
 import com.carbonoverde.backend.enums.StatusArea;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -28,19 +29,19 @@ public class GreenArea
     @Column(name = "name", nullable = false, length = 100)
     private String name;
 
-    @NotBlank
+    @NotNull
     @Column(name = "area_total", nullable = false)
     private Double areaTotalM2; // area total em m²
 
     @Column(name = "area_available_m2", nullable = false)
     private Double areaAvailableM2; // Área ainda não compensada
 
-    @NotBlank
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "type_area", nullable = false)
     private TypeArea typeArea;
 
-    @NotBlank
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "status_area", nullable = false)
     private StatusArea statusArea;

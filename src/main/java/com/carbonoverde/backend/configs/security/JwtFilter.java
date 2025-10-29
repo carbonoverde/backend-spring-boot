@@ -69,6 +69,9 @@ public class JwtFilter extends OncePerRequestFilter {
             log.warn("User not found for JWT token: {}", e.getMessage());
         } catch (Exception e) {
             log.error("JWT processing error: {}", e.getMessage());
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            response.getWriter().write("Token inválido ou expirado");
+            return;
         }
 
         filterChain.doFilter(request, response);

@@ -2,6 +2,7 @@ package com.carbonoverde.backend.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Getter
@@ -49,11 +50,11 @@ public class Address
     @Column(name = "complement", length = 100)
     private String complement;
 
-    @NotBlank
+    @NotNull
     @Column(name = "latitude", nullable = false)
     private Double latitude;
 
-    @NotBlank
+    @NotNull
     @Column(name = "longitude", nullable = false)
     private Double longitude;
 }

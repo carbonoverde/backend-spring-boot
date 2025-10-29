@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 @Data
 public class UserRequestDto
@@ -30,6 +30,9 @@ public class UserRequestDto
     @NotBlank(message = "Email é obrigatório")
     @Pattern(regexp = "^[\\w.-]+@[\\w.-]+\\.\\w{2,}$", message = "Email inválido")
     private String email;
+
+    @NotBlank(message = "Cidade é obrigatória")
+    private String city;
 
     @NotNull(message = "Perfil é obrigatório. Escolha entre ADMIN ou USER ou MANAGER")
     private UserRole role;

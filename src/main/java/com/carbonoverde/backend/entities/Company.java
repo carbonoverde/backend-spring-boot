@@ -72,6 +72,11 @@ public class Company
     // Métod para adicionar emissão mensal
     public void addEmissionsMonthly(Double emissionsCo2)
     {
-        this.accumulatedCo2 += emissionsCo2;
+        if (this.accumulatedCo2 == null) {
+            this.accumulatedCo2 = 0.0;
+        }
+        if (emissionsCo2 != null) {
+            this.accumulatedCo2 += emissionsCo2;
+        }
     }
 }

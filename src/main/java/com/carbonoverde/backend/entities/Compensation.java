@@ -2,7 +2,7 @@ package com.carbonoverde.backend.entities;
 
 import com.carbonoverde.backend.enums.StatusCompensation;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -23,9 +23,9 @@ public class Compensation
     @Setter(AccessLevel.NONE)
     private Long id;
 
-    @NotBlank
+    @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "status_ compensation", nullable = false)
+    @Column(name = "status_compensation", nullable = false)
     private StatusCompensation statusCompensation;
 
     // Dados da compensação
