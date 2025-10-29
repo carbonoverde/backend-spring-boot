@@ -15,4 +15,3 @@ public class EnvironmentalImpact {
     // Impacto por tipo
     private ImpactByType impactByType;
 }
-

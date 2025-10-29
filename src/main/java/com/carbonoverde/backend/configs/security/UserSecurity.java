@@ -18,7 +18,6 @@ public class UserSecurity {
     private final UserRepository userRepository;
     private final SecurityRules securityRules;
     private final CompanyRepository companyRepository;
-    private final CompensationRepository compensationRepository;
     private final MonthlyEmissionRepository monthlyEmissionRepository;
 
     public boolean isOwnProfile(Authentication authentication, Long userId) {
