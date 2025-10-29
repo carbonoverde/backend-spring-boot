@@ -2,6 +2,7 @@ package com.carbonoverde.backend.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -30,7 +31,7 @@ public class Company
     @Column(name = "cnpj", nullable = false, unique = true, length = 14)
     private String cnpj;
 
-    @NotBlank
+    @NotNull
     @Column(name = "date_registration")
     private LocalDateTime dateRegistration;
 

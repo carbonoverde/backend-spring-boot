@@ -17,10 +17,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
 
+    
     private final UserService userService;
 
+
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER')")
     public ResponseEntity<UserResponseDto> createUser(@Valid @RequestBody UserRequestDto userRequest) {
         UserResponseDto createdUser = userService.createUser(userRequest);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
